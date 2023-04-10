@@ -38,7 +38,8 @@ function App() {
       characters.filter(
         (character) =>
           character.name.toLowerCase().includes(searchQuery.toLowerCase())
-      ).slice(startIndex, endIndex)
+      )
+        .slice(startIndex, endIndex)
     );
   }, [currentPage, searchQuery, characters]);
 
@@ -164,7 +165,10 @@ function App() {
 
       <div>
         {searchQuery
-          ? renderPageNumbers(getTotalPages(filteredCharacters.length))
+          ? renderPageNumbers(getTotalPages(characters.filter(
+            (character) =>
+              character.name.toLowerCase().includes(searchQuery.toLowerCase())
+          ).length))
           : renderPageNumbers(getTotalPages(characters.length))}
       </div>
     </div>
