@@ -111,7 +111,8 @@ function App() {
 
   return (
     <div>
-      <input type="text" value={searchQuery} onChange={handleSearchChange} />
+
+      <input type="text" value={searchQuery} onChange={handleSearchChange} placeholder='Search characters...' />
 
       {filteredCharacters.length > 0 ? (
         <table>
