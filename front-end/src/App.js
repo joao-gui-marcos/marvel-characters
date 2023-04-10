@@ -4,18 +4,26 @@ import axios from 'axios';
 function App() {
   const [characters, setCharacters] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(
-        `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=ff198be091622941d273cd1f676a8e66&hash=6b16ba20069637abb2460950c320d195&offset=${(currentPage - 1) * 20}`
-      );
-
-      setCharacters(result.data.data.results);
+      if (!searchQuery) {
+        const result = await axios(
+          `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=ff198be091622941d273cd1f676a8e66&hash=6b16ba20069637abb2460950c320d195&offset=${(currentPage - 1) * 20}`
+        );
+        setCharacters(result.data.data.results);
+      }
+      if (searchQuery) {
+        const result = await axios(
+          `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=ff198be091622941d273cd1f676a8e66&hash=6b16ba20069637abb2460950c320d195&offset=${(currentPage - 1) * 20}&nameStartsWith=${searchQuery}`
+        );
+        setCharacters(result.data.data.results);
+      }
     };
 
     fetchData();
-  }, [currentPage]);
+  }, [currentPage, searchQuery]);
 
   const nextPage = () => {
     setCurrentPage(currentPage + 1);
@@ -25,8 +33,14 @@ function App() {
     setCurrentPage(currentPage - 1);
   };
 
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+    setCurrentPage(1);
+  };
+
   return (
     <div>
+      <input type="text" value={searchQuery} onChange={handleSearchChange} />
       {characters.map((character) => (
         <div key={character.id}>{character.name}</div>
       ))}
