@@ -111,9 +111,57 @@ function App() {
   return (
     <div>
       <input type="text" value={searchQuery} onChange={handleSearchChange} />
-      {filteredCharacters.length > 0 ? filteredCharacters.map((character) => (
-        <div key={character.id}>{character.name}</div>
-      )) : <p>Loading all characters... (this can take a while)</p>}
+
+      {filteredCharacters.length > 0 ? (
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Series</th>
+              <th>Events</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredCharacters.map((character) => (
+              <tr key={character.id}>
+                <td>{character.name}</td>
+                <td>
+                  {character.series.available > 0 ? (
+                    <ul style={{ listStyleType: "none" }}>
+                      {character.series.items.slice(0, 3).map((series) => (
+                        <li key={series.name}>{series.name}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <ul style={{ listStyleType: "none" }}>
+                      <li>No series found</li>
+                    </ul>
+                  )}
+                </td>
+                <td>
+                  {character.events.available > 0 ? (
+                    <ul style={{ listStyleType: "none" }}>
+                      {character.events.items.slice(0, 3).map((event) => (
+                        <li key={event.name}>{event.name}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <ul style={{ listStyleType: "none" }}>
+                      <li>No event found</li>
+                    </ul>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+
+
+      ) : (
+        <p>Loading all characters... (this can take a while)</p>
+      )}
+
       <div>
         {searchQuery
           ? renderPageNumbers(getTotalPages(filteredCharacters.length))
