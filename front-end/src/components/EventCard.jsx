@@ -20,6 +20,10 @@ function EventCard({ event }) {
     <div>
       <ul>
         <li >{event.name}</li>
+        <img
+          src={`${eventDetails.thumbnail?.path}.${eventDetails.thumbnail?.extension}`}
+          alt={eventDetails.name}
+        />
         <li >{eventDetails.description}</li>
       </ul>
     </div>

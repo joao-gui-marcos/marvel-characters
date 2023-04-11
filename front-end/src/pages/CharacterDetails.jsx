@@ -28,13 +28,12 @@ function CharacterDetails() {
           <h3>{characterDetails.name}</h3>
           <p>{characterDetails.description}</p>
           <img
-            // src='https://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55.jpg'
             src={`${characterDetails.thumbnail?.path}.${characterDetails.thumbnail?.extension}`}
             alt={characterDetails.name}
           />
           <div>
             <h3>Events:</h3>
-            {characterDetails.events?.items?.map((event, i) => (
+            {characterDetails.events?.items?.slice(0, 8).map((event, i) => (
               <div key={i}>
                 <EventCard event={event} />
               </div>
