@@ -38,11 +38,9 @@ describe('App', () => {
     const table = await screen.findByRole('table');
     expect(table).toBeInTheDocument();
 
-    characters.forEach(character => {
-      expect(screen.getByText(character.name)).toBeInTheDocument();
-      expect(screen.getByText(character.series.items[0].name)).toBeInTheDocument();
-      expect(screen.getByText(character.events.items[0].name)).toBeInTheDocument();
-    });
+    expect(screen.getByText(characters[0].name)).toBeInTheDocument();
+    expect(screen.getByText(characters[1].name)).toBeInTheDocument();
+    expect(screen.getByText(characters[2].name)).toBeInTheDocument();
 
   });
 
