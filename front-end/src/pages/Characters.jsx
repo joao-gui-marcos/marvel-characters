@@ -9,6 +9,7 @@ function Characters() {
   const [filteredCharacters, setFilteredCharacters] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
+  const [enableSearch, setEnableSearch] = useState(true);
 
   const charactersPerPage = 10;
 
@@ -18,6 +19,7 @@ function Characters() {
         const allCharacters = await marvelAPI.getCharacters();
         setCharacters(allCharacters);
         setFilteredCharacters(allCharacters);
+        setEnableSearch(false);
       } catch (error) {
         console.error(error.message);
       }
@@ -52,9 +54,7 @@ function Characters() {
 
   return (
     <div>
-
-      <SearchBar searchQuery={searchQuery} onSearchChange={handleSearchChange} />
-
+      <SearchBar searchQuery={searchQuery} onSearchChange={handleSearchChange} enable={enableSearch} />
       {filteredCharacters.length > 0 ? (
         <CharacterTable characters={filteredCharacters} />
       ) : (

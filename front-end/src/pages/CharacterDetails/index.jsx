@@ -32,7 +32,7 @@ function CharacterDetails() {
             />
             <span>
               <h3>{characterDetails.name}</h3>
-              <p>{characterDetails.description}</p>
+              <p>{characterDetails.description ? characterDetails.description : "Descrição ausente"}</p>
             </span>
           </div>
           <div>

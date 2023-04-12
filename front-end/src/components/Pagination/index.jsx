@@ -18,7 +18,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
   // Add the page number buttons to the array
   for (let i = startPage; i <= endPage; i++) {
     pageNumbers.push(
-      <button key={i} onClick={() => onPageChange(i)}>
+      <button key={i} onClick={() => onPageChange(i)} className={i === currentPage ? "current-page" : ""}>
         {i}
       </button>
     );
@@ -53,17 +53,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
 
   return (
     <div className="pagination-container">
-      {pageNumbers.map((page, i) => {
-        if (page.props.children === currentPage) {
-          return (
-            <button className="current-page" key={i} onClick={() => onPageChange(page.props.children)}>
-              {page.props.children}
-            </button>
-          );
-        } else {
-          return page;
-        }
-      })}
+      {pageNumbers}
     </div>
   );
 }
