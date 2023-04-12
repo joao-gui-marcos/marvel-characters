@@ -1,11 +1,11 @@
 .event-container {
- float:left;
- margin: 10px;
- margin-left: 50px;
- position: relative; 
+  position: relative;
+  margin-left: 30px;
 }
 
 .event-card {
+  float: left;
+  margin: 20px 20px;
   background-color: black;
   color: white;
   width: 268px;
