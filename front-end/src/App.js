@@ -3,6 +3,7 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import './App.css'
 
 import Characters from "./pages/Characters";
 import CharacterDetails from "./pages/CharacterDetails";

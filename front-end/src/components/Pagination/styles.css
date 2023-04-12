@@ -1,0 +1,32 @@
+.pagination-container {
+  position: fixed;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 60px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination-container button {
+  height: 40px;
+  width: 40px;
+  border: none;
+  margin: 0 5px;
+  font-size: 16px;
+  color: black;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.pagination-container button:hover {
+  background-color: lightgray;
+}
+
+.pagination-container button.current-page {
+  background-color: #247DD0;
+  color: white;
+}

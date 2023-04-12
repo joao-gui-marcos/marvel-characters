@@ -1,4 +1,5 @@
 import React from 'react';
+import './styles.css';
 
 function Pagination({ currentPage, totalPages, onPageChange }) {
   const pageNumbers = [];
@@ -31,7 +32,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
       );
     }
     pageNumbers.unshift(
-      <button key="1" onClick={() => onPageChange(1)}>
+      <button key="1-1" onClick={() => onPageChange(1)}>
         1
       </button>
     );
@@ -51,8 +52,18 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
   }
 
   return (
-    <div>
-      {pageNumbers}
+    <div className="pagination-container">
+      {pageNumbers.map((page, i) => {
+        if (page.props.children === currentPage) {
+          return (
+            <button className="current-page" key={i} onClick={() => onPageChange(page.props.children)}>
+              {page.props.children}
+            </button>
+          );
+        } else {
+          return page;
+        }
+      })}
     </div>
   );
 }

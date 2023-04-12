@@ -10,7 +10,7 @@ function Characters() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
 
-  const charactersPerPage = 7;
+  const charactersPerPage = 10;
 
   useEffect(() => {
     async function fetchData() {
@@ -58,7 +58,7 @@ function Characters() {
       {filteredCharacters.length > 0 ? (
         <CharacterTable characters={filteredCharacters} />
       ) : (
-        <p>Loading all characters... (this can take a while)</p>
+        <p>Loading characters...</p>
       )
       }
       <Pagination
