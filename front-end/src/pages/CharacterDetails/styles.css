@@ -1,0 +1,32 @@
+
+.character-details-header {
+  display: flex;
+  background-color: #070707;
+  opacity: 85%;
+  color: white;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 30% 100%, 0 100%);
+}
+
+
+.character-details-header p{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 50px;
+  padding-right: 40px;
+  padding-left: 40px;
+}
+
+.character-details-header h3{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  text-align: center;
+}
+
+.events-header {
+  padding-left: 50px;
+}
+
+

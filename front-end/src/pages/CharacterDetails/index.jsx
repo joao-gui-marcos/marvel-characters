@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import marvelAPI from '../services/marvelAPI';
-import EventCard from '../components/EventCard';
+import marvelAPI from '../../services/marvelAPI';
+import EventCard from '../../components/EventCard';
+import "./styles.css";
 
 function CharacterDetails() {
   const { id } = useParams();
@@ -21,19 +22,22 @@ function CharacterDetails() {
 
   return (
     <div>
-      <h2>Character Details</h2>
       {characterDetails ? (
         <div>
-          <p>ID: {id}</p>
-          <h3>{characterDetails.name}</h3>
-          <p>{characterDetails.description}</p>
-          <img
-            src={`${characterDetails.thumbnail?.path}.${characterDetails.thumbnail?.extension}`}
-            alt={characterDetails.name}
-          />
+          <div className='character-details-header'>
+            <img
+              src={`${characterDetails.thumbnail?.path}.${characterDetails.thumbnail?.extension}`}
+              alt={characterDetails.name}
+              width="300px"
+            />
+            <span>
+              <h3>{characterDetails.name}</h3>
+              <p>{characterDetails.description}</p>
+            </span>
+          </div>
           <div>
-            <h3>Events:</h3>
-            {characterDetails.events?.items?.slice(0, 8).map((event, i) => (
+            <h3 className='events-header'>Eventos</h3>
+            {characterDetails.events?.items?.map((event, i) => (
               <div key={i}>
                 <EventCard event={event} />
               </div>

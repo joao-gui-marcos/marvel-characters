@@ -1,0 +1,36 @@
+.event-container {
+ float:left;
+ margin: 10px;
+ margin-left: 50px;
+ position: relative; 
+}
+
+.event-card {
+  background-color: black;
+  color: white;
+  width: 268px;
+  height: 438px;
+  padding: 0px;
+  position: relative;
+}
+
+.event-img {
+  border-bottom: 2px solid red;
+  }
+
+.event-name {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  margin: 15px;
+  }
+
+.event-description {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  margin: 15px;
+  position: absolute; 
+  bottom: 0; /* position it at the bottom */
+}
+

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import marvelAPI from '../services/marvelAPI';
+import marvelAPI from '../../services/marvelAPI';
+import "./styles.css";
 
 function EventCard({ event }) {
   const [eventDetails, setEventDetails] = useState([]);
@@ -17,14 +18,17 @@ function EventCard({ event }) {
   }, []);
 
   return (
-    <div>
-      <ul>
-        <li >{event.name}</li>
+    <div className='event-container'>
+      <ul className='event-card'>
         <img
+          className='event-img'
           src={`${eventDetails.thumbnail?.path}.${eventDetails.thumbnail?.extension}`}
           alt={eventDetails.name}
+          width="268px"
+          height="265px"
         />
-        <li >{eventDetails.description}</li>
+        <p className='event-name'>{event.name}</p>
+        <p className='event-description'>{eventDetails.description}</p>
       </ul>
     </div>
   );
