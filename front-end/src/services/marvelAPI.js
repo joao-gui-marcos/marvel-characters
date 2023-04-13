@@ -28,12 +28,13 @@ const getCharacterDetails = async (id) => {
 };
 
 const getEvent = async (resourceURI) => {
+  const httpsResourceURI = resourceURI.replace("http:", "https:");
   const result = await axios(
-    `${resourceURI}?ts=1&apikey=ff198be091622941d273cd1f676a8e66&hash=6b16ba20069637abb2460950c320d195`
+    `${httpsResourceURI}?ts=1&apikey=ff198be091622941d273cd1f676a8e66&hash=6b16ba20069637abb2460950c320d195`
   );
-
   return result.data.data.results[0];
 };
+
 
 
 const marvelAPI = {
