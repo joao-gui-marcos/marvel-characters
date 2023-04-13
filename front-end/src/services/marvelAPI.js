@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseUrl = 'http://gateway.marvel.com/v1/public';
+const baseUrl = 'https://gateway.marvel.com/v1/public';
 
 const getCharacters = async () => {
   let allCharacters = [];
