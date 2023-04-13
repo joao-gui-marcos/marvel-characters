@@ -27,7 +27,7 @@ To install and run this app locally, follow the steps below:
 
 ## Production Link
 
-The app is hosted on []().
+The app is hosted on [marvel-characters-production.up.railway.app](marvel-characters-production.up.railway.app).
 
 ## Credits
 
